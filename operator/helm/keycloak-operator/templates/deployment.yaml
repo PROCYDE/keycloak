@@ -16,6 +16,12 @@ spec:
       labels:
         {{ include "keycloak.selectorLabels" . }}
     spec:
+      {{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+      {{- range .Values.imagePullSecrets }}
+        - name: {{ . }}
+      {{- end }}
+      {{- end }}
       containers:
         - name: keycloak-operator
           env:
