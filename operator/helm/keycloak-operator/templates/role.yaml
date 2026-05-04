@@ -46,6 +46,12 @@ rules:
     verbs:
       - list
   - apiGroups:
+      - ""
+    resources:
+      - pods/log
+    verbs:
+      - get
+  - apiGroups:
       - batch
     resources:
       - jobs
@@ -69,3 +75,15 @@ rules:
       - delete
       - patch
       - update
+  - apiGroups:
+      - monitoring.coreos.com
+    resources:
+      - servicemonitors
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - update
+      - watch
+      - patch
